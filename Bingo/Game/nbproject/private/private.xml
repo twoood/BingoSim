@@ -4,12 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/testBoardChips.java</file>
-            <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/ChipShape.java</file>
-            <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/ChipComponent.java</file>
             <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/Board.java</file>
-            <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/BoardComponent.java</file>
-            <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/SelectableShape.java</file>
-            <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/GameShape.java</file>
+            <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/Tile.java</file>
+            <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/BoardGui.java</file>
+            <file>file:/home/dale/Documents/School/Spring2018/CS321/BingoSim/BingoSim/src/game/Testing.java</file>
         </group>
     </open-files>
 </project-private>

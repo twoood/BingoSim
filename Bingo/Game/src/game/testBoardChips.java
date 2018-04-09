@@ -16,9 +16,11 @@ import javax.swing.*;
 public class testBoardChips {
     public static void main(String[] args)
    {
-   String theme = "Dark";
-   Board myboard = new Board(theme);
    JFrame f = new JFrame("Bingo Board");
+   String theme = "Not Dark";
+   Board myboard = new Board(theme);
+   Board testboard = new Board("Dark");
+   
   /* JButton b1 = new JButton(myboard.getTile(0, 0));
    
    b1.setBounds(50, 50, 5, 5);
@@ -27,11 +29,21 @@ public class testBoardChips {
    f.setVisible(true);
    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    f.add(b1);*/
-   f.setSize(640, 480);
+   f.setSize(1500, 500);
    f.setVisible(true);
    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-   myboard.displayBoard(f);
-   
+   JPanel container = new JPanel();
+   container.setLayout(new BoxLayout(container, BoxLayout.X_AXIS));
+   JPanel use1 = myboard.displayBoard();
+   JPanel use2 = testboard.displayBoard();
+   container.add(use1);
+   container.add(use2);
+   f.add(container);
+   while (f.isActive())
+   {
+       myboard.PlayGame();
+       testboard.PlayGame();
+   }
 
    }
 }
