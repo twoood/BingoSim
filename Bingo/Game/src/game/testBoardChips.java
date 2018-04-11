@@ -39,11 +39,27 @@ public class testBoardChips {
    container.add(use1);
    container.add(use2);
    f.add(container);
-   while (f.isActive())
-   {
-       myboard.PlayGame();
-       testboard.PlayGame();
-   }
+   
+   f.addWindowListener(new WindowAdapter() {
+    @Override
+    public void windowClosing(WindowEvent e) {
+    int confirmed = JOptionPane.showConfirmDialog(null, 
+        "Are you sure you want to exit the program?", "Exit Program Message Box",
+        JOptionPane.YES_NO_OPTION);
+
+    if (confirmed == JOptionPane.YES_OPTION) {
+      
+    }
+    }
+    
+    public void windowActivated(WindowEvent we) {
+        myboard.PlayGame();
+        testboard.PlayGame();
+        
+        System.out.println("this window or a subframe was focused");
+         
+    }
+    });
 
    }
 }

@@ -11,8 +11,10 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- *
- * @author dale
+ * 
+ * @author Tom Wood
+ * Class used to visualize the underlying data structure of the Board Class as 
+ * a JPanel with each element of the 2-D array implemented as JButtons.
  */
 public class BoardGui {
         private JButton b1 = new JButton();
@@ -51,6 +53,13 @@ public class BoardGui {
         
         private Board TheBoard;
         
+        
+        /**
+         * 
+         * @param ThisBoard 
+         * Constructor used to create a board. The constructor defines the color
+         * scheme of the GUI, creates all the JButtons, and adds the text.
+         */
         
         public BoardGui(Board ThisBoard)
         {
@@ -265,16 +274,191 @@ public class BoardGui {
                  {
                      System.out.println("Button Enabled");
                  }
+         
+        
+         
+         
         }
+
+        /**
+         * Adds ActionListeners to the JButtons to allow implementation, and to 
+         * give response to the user that the button has been activated. This 
+         * function uses an anonymous inner class of ActionLister to accomplish
+         * its task.
+         */
         public void BoardInteraction()
         {
-            if (b1.getModel().isPressed())
-            {
-                b1.setBackground(Color.RED);
-                TheBoard.SetTileObject(0, 0);
-                System.out.println("Pressed");
-            }
+        ActionListener Alist = (new ActionListener() {
+        public void actionPerformed(ActionEvent e) { 
+        if (e.getSource() == b1)
+        {
+            b1.setBackground(Color.red);
+            TheBoard.SetTileObject(0, 0);
         }
+        else if (e.getSource() == b2)
+        {
+            b2.setBackground(Color.red);
+            TheBoard.SetTileObject(0, 1);            
+        }
+        else if (e.getSource() == b3)
+        {
+            b3.setBackground(Color.red);
+            TheBoard.SetTileObject(0, 2);
+        }
+        else if (e.getSource() == b4)
+        {
+            b4.setBackground(Color.red);
+            TheBoard.SetTileObject(0, 3);            
+        }
+        else if (e.getSource() == b5)
+        {
+            b5.setBackground(Color.red);
+            TheBoard.SetTileObject(0, 4);
+        }
+                else if (e.getSource() == i1)
+        {
+            i1.setBackground(Color.red);
+            TheBoard.SetTileObject(1, 0);
+        }
+        else if (e.getSource() == i2)
+        {
+            i2.setBackground(Color.red);
+            TheBoard.SetTileObject(1, 1);            
+        }
+        else if (e.getSource() == i3)
+        {
+            i3.setBackground(Color.red);
+            TheBoard.SetTileObject(1, 2);
+        }
+        else if (e.getSource() == i4)
+        {
+            i4.setBackground(Color.red);
+            TheBoard.SetTileObject(1, 3);            
+        }
+        else if (e.getSource() == i5)
+        {
+            i5.setBackground(Color.red);
+            TheBoard.SetTileObject(1, 4);
+        }
+                else if (e.getSource() == n1)
+        {
+            n1.setBackground(Color.red);
+            TheBoard.SetTileObject(2, 0);
+        }
+        else if (e.getSource() == n2)
+        {
+            n2.setBackground(Color.red);
+            TheBoard.SetTileObject(2, 1);            
+        }
+        else if (e.getSource() == n3)
+        {
+            n3.setBackground(Color.red);
+            TheBoard.SetTileObject(2, 2);
+        }
+        else if (e.getSource() == n4)
+        {
+            n4.setBackground(Color.red);
+            TheBoard.SetTileObject(2, 3);            
+        }
+        else if (e.getSource() == n5)
+        {
+            n5.setBackground(Color.red);
+            TheBoard.SetTileObject(2, 4);
+        }
+                else if (e.getSource() == g1)
+        {
+            g1.setBackground(Color.red);
+            TheBoard.SetTileObject(3, 0);
+        }
+        else if (e.getSource() == g2)
+        {
+            g2.setBackground(Color.red);
+            TheBoard.SetTileObject(3, 1);            
+        }
+        else if (e.getSource() == g3)
+        {
+            g3.setBackground(Color.red);
+            TheBoard.SetTileObject(3, 2);
+        }
+        else if (e.getSource() == g4)
+        {
+            g4.setBackground(Color.red);
+            TheBoard.SetTileObject(3, 3);            
+        }
+        else if (e.getSource() == g5)
+        {
+            g5.setBackground(Color.red);
+            TheBoard.SetTileObject(3, 4);
+        }
+        else if (e.getSource() == o1)
+        {
+            o1.setBackground(Color.red);
+            TheBoard.SetTileObject(4, 0);
+        }
+        else if (e.getSource() == o2)
+        {
+            o2.setBackground(Color.red);
+            TheBoard.SetTileObject(4, 1);            
+        }
+        else if (e.getSource() == o3)
+        {
+            o3.setBackground(Color.red);
+            TheBoard.SetTileObject(4, 2);
+        }
+        else if (e.getSource() == o4)
+        {
+            o4.setBackground(Color.red);
+            TheBoard.SetTileObject(4, 3);            
+        }
+        else if (e.getSource() == o5)
+        {
+            o5.setBackground(Color.red);
+            TheBoard.SetTileObject(4, 4);
+        }
+        else if (e.getSource() == Call)
+        {
+            // Implement Calling of Bingo
+            Call.setBackground(Color.WHITE);
+        }
+        }});
+        
+        b1.addActionListener(Alist);
+        b2.addActionListener(Alist);
+        b3.addActionListener(Alist);
+        b4.addActionListener(Alist);        
+        b5.addActionListener(Alist);
+        
+        i1.addActionListener(Alist);
+        i2.addActionListener(Alist);
+        i3.addActionListener(Alist);
+        i4.addActionListener(Alist);        
+        i5.addActionListener(Alist);
+        
+        n1.addActionListener(Alist);
+        n2.addActionListener(Alist);
+        n3.addActionListener(Alist);
+        n4.addActionListener(Alist);        
+        n5.addActionListener(Alist);
+
+        g1.addActionListener(Alist);
+        g2.addActionListener(Alist);
+        g3.addActionListener(Alist);
+        g4.addActionListener(Alist);        
+        g5.addActionListener(Alist);
+
+        o1.addActionListener(Alist);
+        o2.addActionListener(Alist);
+        o3.addActionListener(Alist);
+        o4.addActionListener(Alist);        
+        o5.addActionListener(Alist);
+
+        Call.addActionListener(Alist);
+    
+        }
+        /**
+         * Function used to retrieve the Gui 
+         * @return JPanel
+         */
         public JPanel GetGui()
         {
             return Show;
