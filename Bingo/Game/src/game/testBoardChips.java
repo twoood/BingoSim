@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package game;
+import java.util.*;
 
 import java.awt.*;
 import java.awt.geom.*;
@@ -17,9 +18,9 @@ public class testBoardChips {
     public static void main(String[] args)
    {
    JFrame f = new JFrame("Bingo Board");
-   String theme = "Not Dark";
-   Board myboard = new Board(theme);
-   Board testboard = new Board("Dark");
+
+   Board myboard = new Board(false);
+   Board testboard = new Board(true);
    
   /* JButton b1 = new JButton(myboard.getTile(0, 0));
    
@@ -55,7 +56,12 @@ public class testBoardChips {
     public void windowActivated(WindowEvent we) {
         myboard.PlayGame();
         testboard.PlayGame();
+        ArrayList<String> Arrry = new ArrayList<>();
+        Arrry = myboard.GetMarked();
         
+		for (String temp : Arrry) {
+			System.out.println(temp);
+		}
         System.out.println("this window or a subframe was focused");
          
     }

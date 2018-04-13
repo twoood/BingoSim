@@ -6,7 +6,6 @@
 package game;
 
 import java.awt.*;
-import java.awt.geom.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -51,7 +50,7 @@ public class BoardGui {
         
         private JPanel Show = new JPanel();
         
-        private Board TheBoard;
+        private final Board TheBoard;
         
         
         /**
@@ -77,7 +76,7 @@ public class BoardGui {
         
          Show = new JPanel();
          Show.setBounds(40, 80, 400, 600);
-        if (ThisBoard.getTheme().equals("Dark"))
+        if (ThisBoard.getTheme().equals(true))
         {
          Show.setBackground(DarkLetters);
         }
@@ -174,7 +173,7 @@ public class BoardGui {
         Color tile1 = LightTiles1;
         Color tile2 = LightTiles2;
         
-        if (ThisBoard.getTheme().equals("Dark"))
+        if (ThisBoard.getTheme().equals(true))
         {
             letterC = DarkLetters;
             tile1 = DarkTiles1;
@@ -269,12 +268,7 @@ public class BoardGui {
          Show.add(o3);
          Show.add(o4);
          Show.add(o5);
-         
-         if(b1.getModel().isEnabled())
-                 {
-                     System.out.println("Button Enabled");
-                 }
-         
+          
         
          
          
@@ -289,6 +283,7 @@ public class BoardGui {
         public void BoardInteraction()
         {
         ActionListener Alist = (new ActionListener() {
+        @Override
         public void actionPerformed(ActionEvent e) { 
         if (e.getSource() == b1)
         {

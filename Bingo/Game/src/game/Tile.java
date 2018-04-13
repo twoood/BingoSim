@@ -50,7 +50,7 @@ public class Tile {
      * @param i which indicates position in the column of the array
      * @return String Bingo Value
      */
-    public String GenerateVal(int i)
+    private static String GenerateVal(int i)
     {
         int Num;
         String Total;

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package game;
+import java.util.*;
 
 import javax.swing.*;
 
@@ -17,7 +18,7 @@ import javax.swing.*;
 public class Board {
     
     private final Tile[][] BoardTile = new Tile[5][5];
-    private final String ThemeBoard;
+    private final Boolean ThemeBoard;
     private final BoardGui TheGui;
  
     /**
@@ -26,7 +27,7 @@ public class Board {
      * also instantiates its own GUI.
      * @param Theme 
      */
-    public Board(String Theme)
+    public Board(Boolean Theme)
     {
         this.ThemeBoard = Theme;
       
@@ -62,10 +63,10 @@ public class Board {
      * string.
      * @return clone of the the board's theme
      */
-    public String getTheme()
+    public Boolean getTheme()
     {
-        String Clone = this.ThemeBoard;
-        return Clone;
+        Boolean theme = this.ThemeBoard;
+        return theme;
         
     }
     /**
@@ -86,6 +87,7 @@ public class Board {
      */
     public Boolean GetTileStatus(int i, int j)
     {
+
         return this.BoardTile[i][j].getStatus();
     }
     /**
@@ -104,5 +106,18 @@ public class Board {
     public void PlayGame()
     {
         TheGui.BoardInteraction();
+    }
+    public ArrayList<String> GetMarked()
+    {
+        ArrayList<String> CalledValues = new ArrayList<>();
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+            if(this.GetTileStatus(i, j).equals(true))
+                CalledValues.add(this.getTile(i, j));
+            }
+        }
+        return CalledValues;
     }
 }
