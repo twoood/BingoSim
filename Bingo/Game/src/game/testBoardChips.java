@@ -6,13 +6,14 @@
 package game;
 import java.util.*;
 
-import java.awt.*;
-import java.awt.geom.*;
 import java.awt.event.*;
 import javax.swing.*;
 /**
  *
- * @author dale
+ * @author Tom Wood
+ * This java class is used exclusively to check the functionality of the Board, 
+ * Tiles, and the Gui.
+ * Not to be used for integration.
  */
 public class testBoardChips {
     public static void main(String[] args)
@@ -20,9 +21,20 @@ public class testBoardChips {
    JFrame f = new JFrame("Bingo Board");
 
    Board myboard = new Board(false);
-   Board testboard = new Board(true);
    
-  /* JButton b1 = new JButton(myboard.getTile(0, 0));
+   Board testboard = new Board(true);
+   System.out.println("Begin");
+   
+   /*JPanel use4 = myboard.displayBoard();
+   System.out.println("Begin");
+   javax.swing.GroupLayout layout = new javax.swing.GroupLayout(use4);
+        use4.setLayout(layout);
+        // layout settings goes here
+        f.setSize(1500, 500);
+        f.add(use4);
+        f.setVisible(true);
+   
+  JButton b1 = new JButton(myboard.getTile(0, 0));
    
    b1.setBounds(50, 50, 5, 5);
    
@@ -30,6 +42,7 @@ public class testBoardChips {
    f.setVisible(true);
    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    f.add(b1);*/
+  
    f.setSize(1500, 500);
    f.setVisible(true);
    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,11 +69,14 @@ public class testBoardChips {
     public void windowActivated(WindowEvent we) {
         myboard.PlayGame();
         testboard.PlayGame();
+        testboard.CheckCPU("B2");
+        testboard.CheckCPU("B7");
+        testboard.CheckCPU("B9");
         ArrayList<String> Arrry = new ArrayList<>();
-        Arrry = myboard.GetMarked();
+        Arrry = testboard.GetMarked();
         
 		for (String temp : Arrry) {
-			System.out.println(temp);
+			System.out.print(temp + "Marked");
 		}
         System.out.println("this window or a subframe was focused");
          

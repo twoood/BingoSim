@@ -5,7 +5,7 @@
  */
 
 package game;
-import java.util.Random;
+import java.util.*;
 
 /**
  *
@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class Tile {
     private final String BingoVal;
-    private static Random Rand = new Random();
+    //private static Random Rand = new Random();
     private Boolean IsSelected;
     
     /**
@@ -28,10 +28,10 @@ public class Tile {
      */
     public Tile(int i)
     {
-       this.BingoVal = this.GenerateVal(i);
-       this.SetSelected(false);
-       System.out.print(this.getVal());
-       System.out.println(this.getStatus());
+       this.BingoVal = "Broke";//this.GenerateVal(i);
+       /*this.SetSelected(false);
+       //System.out.print(this.getVal());
+       //System.out.println(this.getStatus());*/
     }
     /**
      * Constructor used for the Free Space. This constructor is unique to the 
@@ -40,61 +40,15 @@ public class Tile {
      */
     public Tile(String Free)
     {
-        this.BingoVal = Free;
-        this.SetSelected(false);
-    }
-    /**
-     * Function used to Generate Legal Bingo values. Bingo values vary depending
-     * on the column they're used. This function makes sure to return the 
-     * correct string for a Bingo Tile.
-     * @param i which indicates position in the column of the array
-     * @return String Bingo Value
-     */
-    private static String GenerateVal(int i)
-    {
-        int Num;
-        String Total;
-        switch (i) {
-            case 0:
-            {
-                Num = Rand.nextInt(15)+1;
-                String temp = Integer.toString(Num);
-                Total = 'B' + temp;
-                return Total;
-            }
-            case 1:
-            {
-                Num = Rand.nextInt(15)+16;
-                String temp = Integer.toString(Num);
-                Total = 'I' + temp;
-                return Total;
-            }
-            case 2:
-            {
-                Num = Rand.nextInt(15)+31;
-                String temp = Integer.toString(Num);
-                Total = 'N' + temp;
-                return Total;
-            }
-            case 3:
-            {
-                Num = Rand.nextInt(15)+46;
-                String temp = Integer.toString(Num);
-                Total = 'G' + temp;
-                return Total;
-            }
-            case 4:
-            {
-                Num = Rand.nextInt(15)+61;
-                String temp = Integer.toString(Num);
-                Total = 'O' + temp;
-                return Total;
-            }
-            default:
-                Total = "Error";
-                break;
+        if (Free.equals("Free"))
+        {
+            this.BingoVal = "Free";
         }
-        return Total;
+        else 
+        {
+        this.BingoVal = Free;
+        }
+        this.SetSelected(false);
     }
     /**
      * Function used to get the Bingo Value of the Tile.
@@ -112,7 +66,8 @@ public class Tile {
     public void SetSelected(Boolean selected)
     {
         IsSelected = selected;
-        System.out.print(this.getVal());
+        //System.out.print(this.getVal() + " which is initialized");
+        if (selected == true)
         System.out.println("Value change to " + selected);
     }
     /**

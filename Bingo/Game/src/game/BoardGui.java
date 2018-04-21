@@ -335,7 +335,7 @@ public class BoardGui {
             i5.setBackground(Color.red);
             TheBoard.SetTileObject(1, 4);
         }
-                else if (e.getSource() == n1)
+        else if (e.getSource() == n1)
         {
             n1.setBackground(Color.red);
             TheBoard.SetTileObject(2, 0);
@@ -360,7 +360,7 @@ public class BoardGui {
             n5.setBackground(Color.red);
             TheBoard.SetTileObject(2, 4);
         }
-                else if (e.getSource() == g1)
+        else if (e.getSource() == g1)
         {
             g1.setBackground(Color.red);
             TheBoard.SetTileObject(3, 0);
@@ -457,5 +457,118 @@ public class BoardGui {
         public JPanel GetGui()
         {
             return Show;
+        }
+         /**
+         * Function used to mark the proper JButton corresponding to the index
+         * in the 2-D array of Board. Used for the Computer Opponent
+         * @param i Columm
+         * @param j Row
+         */
+        public void MarkTileButton(int i, int j)
+        {
+            switch (i) {
+                case 0:
+                    switch (j) {
+                        case 0:
+                            b1.setBackground(Color.red);
+                            break;
+                        case 1:
+                            b2.setBackground(Color.red);
+                            break;
+                        case 2:
+                            b3.setBackground(Color.red);
+                            break;
+                        case 3:
+                            b4.setBackground(Color.red);
+                            break;
+                        case 4:
+                            b5.setBackground(Color.red);
+                            break;
+                        default:
+                            break;
+                    }       break;
+                case 1:
+                    switch (j) {
+                        case 0:
+                            i1.setBackground(Color.red);
+                            break;
+                        case 1:
+                            i2.setBackground(Color.red);
+                            break;
+                        case 2:
+                            i3.setBackground(Color.red);
+                            break;
+                        case 3:
+                            i4.setBackground(Color.red);
+                            break;
+                        case 4:
+                            i5.setBackground(Color.red);
+                            break;
+                        default:
+                            break;
+                    }       break;
+                case 2:
+                    switch (j) {
+                        case 0:
+                            n1.setBackground(Color.red);
+                            break;
+                        case 1:
+                            n2.setBackground(Color.red);
+                            break;
+                        case 2:
+                            n3.setBackground(Color.red);
+                            break;
+                        case 3:
+                            n4.setBackground(Color.red);
+                            break;
+                        case 4:
+                            n5.setBackground(Color.red);
+                            break;
+                        default:
+                            break;
+                    }       break;
+                case 3:
+                    switch (j) {
+                        case 0:
+                            g1.setBackground(Color.red);
+                            break;
+                        case 1:
+                            g2.setBackground(Color.red);
+                            break;
+                        case 2:
+                            g3.setBackground(Color.red);
+                            break;
+                        case 3:
+                            g4.setBackground(Color.red);
+                            break;
+                        case 4:
+                            g5.setBackground(Color.red);
+                            break;
+                        default:
+                            break;
+                    }       break;
+                case 4:
+                    switch (j) {
+                        case 0:
+                            o1.setBackground(Color.red);
+                            break;
+                        case 1:
+                            o2.setBackground(Color.red);
+                            break;
+                        case 2:
+                            o3.setBackground(Color.red);
+                            break;
+                        case 3:
+                            o4.setBackground(Color.red);
+                            break;
+                        case 4:
+                            o5.setBackground(Color.red);
+                            break;
+                        default:
+                            break;
+                    }       break;
+                default:
+                    break;
+            }
         }
 }
