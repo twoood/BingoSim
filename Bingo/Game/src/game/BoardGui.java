@@ -16,6 +16,7 @@ import javax.swing.*;
  * a JPanel with each element of the 2-D array implemented as JButtons.
  */
 public class BoardGui {
+        private static Game MyGame; 
         private JButton b1 = new JButton();
         private JButton b2 = new JButton();
         private JButton b3 = new JButton();
@@ -412,7 +413,8 @@ public class BoardGui {
         }
         else if (e.getSource() == Call)
         {
-            // Implement Calling of Bingo
+            //CheckBingo(TheBoard);
+            MyGame.getInstance().CheckBingo(TheBoard);
             Call.setBackground(Color.WHITE);
         }
         }});
@@ -567,6 +569,13 @@ public class BoardGui {
                         default:
                             break;
                     }       break;
+                case 5:
+                    if (j == 0)
+                    {
+                        Call.setBackground(Color.WHITE);
+                        MyGame.getInstance().CheckBingo(TheBoard);
+                    }
+                    break;
                 default:
                     break;
             }

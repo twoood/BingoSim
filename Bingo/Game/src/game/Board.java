@@ -17,6 +17,7 @@ import javax.swing.*;
  */
 public class Board {
     
+    private final Game MyGame;
     private final Tile[][] BoardTile = new Tile[5][5];
     private static final Random Rand = new Random();
     private final Boolean ThemeBoard;
@@ -312,6 +313,92 @@ public class Board {
                     System.out.println(BingoVal);
                 }
             }
+        }
+    }
+    /**
+     * Function used to update the Computer Player's board
+     */
+    public void UpdateCPUBoard()
+    {
+        int zero = 0;
+        int one = 0;
+        int two = 0;
+        int three = 0;
+        int four = 0;
+        int descend = 0;
+        int ascend = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (this.GetTileStatus(i, j) == true)
+                {
+                    if (i == 0)
+                    {
+                        zero+=1;
+                        if (j == 0)
+                        {
+                            descend+=1;
+                        }
+                        else if (j == 4)
+                        {
+                            ascend+=1;
+                        }
+                    }
+                    else if (i == 1)
+                    {
+                        one+=1;
+                        if (j == 1)
+                        {
+                            descend+=1;
+                        }
+                        else if (j == 3)
+                        {
+                            ascend+=1;
+                        }
+                    }
+                    else if (i == 2)
+                    {
+                        two+=1;
+                        if (j == 2)
+                        {
+                            ascend+=1;
+                            descend+=1;
+                        }
+                    }
+                    else if (i == 3)
+                    {
+                        three+=1;
+                        if (j == 1)
+                        {
+                            ascend+=1;
+                        }
+                        else if (j == 3)
+                        {
+                            descend+=1;
+                        }
+                    }
+                    else if (i == 4)
+                    {
+                        four+=1;
+                        if (j == 0)
+                        {
+                            ascend+=1;
+                        }
+                        else if (j == 4)
+                        {
+                            descend+=1;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        if (zero == 5 || one == 5 || two == 5 || three == 5 || four == 5 ||
+                ascend == 5 || descend == 5)
+        {
+            TheGui.MarkTileButton(5, 0); // Special call to mark Bingo button
+                                         // and Call Bingo
         }
     }
 }
