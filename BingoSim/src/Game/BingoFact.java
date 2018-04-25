@@ -18,8 +18,8 @@ public class BingoFact
     private final String FactTwo = "Bingo cards in UK are also called 'Housie'.";
     private final String FactThree = "US bingo cards have 5x5 squares while UK bingo cards have 3 rows and 9 columns.";
     private final String FactFour = "In a standard bingo card, a player can come up with 1,474,200 different winning combinations.";
-    private final String FactFive = "Bingo was introduced way back in the 1930's and back then they played around 10,000 games of bingo every day throughouth the Us, UK, and rest of the world.";
-    private final String FactSix = "How long does the average bingo game last for? Usually, bingo games last for about 3-6 minutes. That means you have a shot of hitting the jackpot every 5 minutes roughly.";
+    private final String FactFive = "Bingo was introduced way back in the 1930's and back then they played around 10,000 games of bingo every day throughouth the US, UK, and rest of the world.";
+    private final String FactSix = "How long does the average bingo game last for? Usually, bingo games last for about 3-6 minutes. So, you could hit a jackpot every 5 minutes roughly.";
     
     /**
      * This creates an instance of BingoFact which can display a fact to the user after
