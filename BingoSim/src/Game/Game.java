@@ -14,11 +14,9 @@ package Game;
 import java.util.*;
 import javax.swing.*;
 import Menu.Player;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -267,6 +265,12 @@ public class Game
    container.setLayout(new BoxLayout(container, BoxLayout.X_AXIS));
    JPanel CardOneGui = CardOne.displayBoard();
    JPanel CardTwoGui = CardTwo.displayBoard();
+   CardOneGui.setBorder(BorderFactory.createCompoundBorder(
+                   BorderFactory.createLineBorder(Color.black),
+                   CardOneGui.getBorder()));
+   CardTwoGui.setBorder(BorderFactory.createCompoundBorder(
+                   BorderFactory.createLineBorder(Color.black),
+                   CardTwoGui.getBorder()));        
    container.add(CardOneGui);
    container.add(CardTwoGui);
    
@@ -276,7 +280,7 @@ public class Game
     @Override
     public void windowClosing(WindowEvent e) {
     int confirmed = JOptionPane.showConfirmDialog(null, 
-        "Are you sure you want to exit the program?", "Exit Program Message Box",
+        "Are you sure you want to exit the Game?", "Exit Program Message Box",
         JOptionPane.YES_NO_OPTION);
 
     if (confirmed == JOptionPane.YES_OPTION) {
@@ -293,6 +297,7 @@ public class Game
          if (PlayerTwo.GetPlayerType()==false)
          {
              //BoardOne.CheckCPU(CalledValue);
+             BoardTwo.CheckCPU("Free");
              BoardTwo.CheckCPU(CalledValue);
          }
     }
