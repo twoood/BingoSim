@@ -69,7 +69,7 @@ public class Start extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(140, 240, 110, 27);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\33.gif")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bingo/33.gif")));
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 10, 340, 100);
 
