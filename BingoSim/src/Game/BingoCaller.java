@@ -31,11 +31,12 @@ public String CallValue()
 {
     int Input = Rand.nextInt(5);
     String BingoValue = GenerateVal(Input);
-    
+    while(CalledValues.contains(BingoValue) == true)
+    {
+    BingoValue = GenerateVal(Input);
+    }    
     CalledValues.add(BingoValue);
-    
-    
-    
+
     return BingoValue;
     
     
