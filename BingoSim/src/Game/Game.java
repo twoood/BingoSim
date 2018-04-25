@@ -275,7 +275,8 @@ public class Game
                    CardTwoGui.getBorder())); 
    container.add(CardOneGui);
    container.add(CardTwoGui);
-  
+   
+   displayCaller();
    
    TheFrame.add(container);
    
@@ -294,8 +295,9 @@ public class Game
     public void windowActivated(WindowEvent we) {
         CardOne.PlayGame();
         CardTwo.PlayGame();
-
-         displayCaller();
+        
+        //displayCaller();
+         
          
          if (BoardTwo.GetTileStatus(2, 2)==false)
          {
@@ -303,11 +305,7 @@ public class Game
              BoardTwo.CheckCPU("Free");
          }
          
-         if (PlayerTwo.GetPlayerType()==false)
-         {
-             BoardOne.CheckCPU(CalledValue);
-             BoardTwo.CheckCPU(CalledValue);
-         }
+        
     }
    
    });
@@ -316,9 +314,9 @@ public class Game
     
     }
     /**
-     *This function is used to both display the GUI and run the game, it cycles 
-     * BingoCaller on click and allows the user to click for a Bingo and also 
-     * serves as the display of the caller
+     *This function is used to both display the Caller and cycle through it
+     * using buttons and creating a new JFrame independent of the main display
+     * 
      *
      */
              
@@ -330,19 +328,24 @@ public class Game
         GenericPanel.setLayout(new BoxLayout(GenericPanel, BoxLayout.X_AXIS));
         
         JButton Call = new JButton("Bingo?");
-        GenericFrame.setSize(200,150);
-        GenericFrame.setTitle(CalledValue);
+        
+        JButton Next = new JButton("Next");
+        GenericFrame.setSize(400,150);
+        GenericFrame.setTitle("BINGO");
            
         
         JLabel BingoVal = new JLabel(CalledValue);
         
-        BingoVal.setSize(75,175);
+        BingoVal.setSize(150,200);
         BingoVal.setFont(new Font("Serif", 1 ,30));
         GenericPanel.add(BingoVal);
         GenericPanel.add(Call);
+        
+        GenericPanel.add(Next);
         GenericFrame.add(GenericPanel);
         GenericFrame.setVisible(true);
         GenericFrame.setLocation(400, 500);
+         GenericFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         ActionListener Clicks = (new ActionListener() {
         @Override
@@ -350,16 +353,38 @@ public class Game
         if (e.getSource() == Call)
         {
             CheckBingo(BoardOne);
+           
             CheckBingo(BoardTwo);
-        }}});
+        }
+        
+        if (e.getSource()== Next)
+        {
+            BingoVal.setText(CalledValue=TheCaller.CallValue());
+             if(PlayerTwo.GetPlayerType()==false)
+             {
+            //BoardOne.CheckCPU(CalledValue);
+            BoardTwo.CheckCPU(CalledValue);
+             }
+            
+        }
+        }});
         Call.addActionListener(Clicks);
+        
+        Next.addActionListener(Clicks);
     
         
         
         
+        
     }
+     /**
+     *This function is used display whether or not a victory has been declared
+     * and allows for the user to exit the game
+     *
+     */
     public void displayVictory()
     {
+        
         JFrame GenericFrame = new JFrame();
         String Condition;
         JPanel VictoryPanel = new JPanel();
@@ -416,11 +441,3 @@ public class Game
         
         
     }
-        
-        
-        
-    
-
-
-    
-
