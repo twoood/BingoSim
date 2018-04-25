@@ -24,20 +24,21 @@ private ArrayList<String> CalledValues;
 public BingoCaller()
 {
     this.CalledValues= new ArrayList <>();
+    CalledValues.add("Free");// Add free space to CalledValues
 }
 
 public String CallValue()
 {
     int Input = Rand.nextInt(5);
     String BingoValue = GenerateVal(Input);
-    
+    while(CalledValues.contains(BingoValue) == true) // Ensures no Duplicate Values are called when playing
+    {
+    BingoValue = GenerateVal(Input);
+    //DisplayValue(BingoValue);
+    }
     CalledValues.add(BingoValue);
-    
-    
-    
-    return BingoValue;
-    
-    
+    System.out.println(BingoValue);
+    return BingoValue;    
 }
 
     
