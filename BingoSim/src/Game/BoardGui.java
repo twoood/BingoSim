@@ -47,7 +47,7 @@ public class BoardGui {
         private JButton o4 = new JButton();
         private JButton o5 = new JButton();
         
-        private JButton Call = new JButton();
+        
         
         private JPanel Show = new JPanel();
         
@@ -116,7 +116,7 @@ public class BoardGui {
         o4 = new JButton(ThisBoard.getTile(4, 3));
         o5 = new JButton(ThisBoard.getTile(4, 4));
         
-        Call = new JButton("Call BINGO");
+        
         
         JLabel b = new JLabel("B");
         JLabel i = new JLabel("I");
@@ -131,8 +131,7 @@ public class BoardGui {
         o.setFont(new Font("Serif", Font.BOLD, 50));
         
         
-        Call.setFont(new Font("Serif", Font.BOLD, 20));
-        Call.setBounds(360, 350, 190, 70);
+       
         
         b.setBounds(80, 0, 100, 50);
         i.setBounds(190, 0, 100, 50);
@@ -233,7 +232,7 @@ public class BoardGui {
 
         
         
-         Show.add(Call);
+         
          Show.add(b);
          Show.add(i);
          Show.add(n);
@@ -411,13 +410,7 @@ public class BoardGui {
             o5.setBackground(Color.red);
             TheBoard.SetTileObject(4, 4);
         }
-        else if (e.getSource() == Call)
-        {
-            //CheckBingo(TheBoard);
-            //MyGame.getInstance().CheckBingo(TheBoard);
-            MyGame.CheckBingo(TheBoard);
-            Call.setBackground(Color.WHITE);
-        }
+        
         }});
         
         b1.addActionListener(Alist);
@@ -450,7 +443,7 @@ public class BoardGui {
         o4.addActionListener(Alist);        
         o5.addActionListener(Alist);
 
-        Call.addActionListener(Alist);
+        
     
         }
         /**
@@ -573,9 +566,7 @@ public class BoardGui {
                 case 5:
                     if (j == 0)
                     {
-                        Call.setBackground(Color.WHITE);
-                        //MyGame.getInstance().CheckBingo(TheBoard);
-                        MyGame.CheckBingo(TheBoard);
+                        
                     }
                     break;
                 default:

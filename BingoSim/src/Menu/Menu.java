@@ -23,7 +23,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         
-        this.getContentPane().setBackground(Color.black);
+        this.getContentPane().setBackground(Color.pink);
     }
 
    
@@ -60,6 +60,7 @@ public class Menu extends javax.swing.JFrame {
         themelb.setText("THEME");
 
         Darkthm.setText("DARK THEME");
+        
         Darkthm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DarkthmActionPerformed(evt);
@@ -218,7 +219,7 @@ public class Menu extends javax.swing.JFrame {
           NumberOfPlayers=1;
            Player playerOne= new Player(1);
            Player playerTwo = new Player(0);
-          Game play= new Game(playerOne,playerTwo);
+          Game play= new Game(playerOne,playerTwo,Theme);
           this.setVisible(false);
       }
        
@@ -226,7 +227,7 @@ public class Menu extends javax.swing.JFrame {
           NumberOfPlayers=2;
           Player playerOne= new Player(2);
           Player playerTwo = new Player(1);
-         Game play= new Game(playerOne,playerTwo);
+         Game play= new Game(playerOne,playerTwo,Theme);
          
         
           this.setVisible(false);

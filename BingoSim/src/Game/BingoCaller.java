@@ -20,13 +20,22 @@ private static Random Rand = new Random();
 private ArrayList<String> CalledValues;
 
 
-
+/**
+ *This Constructor initializes and empty Array List to contain the CalledValues
+ * and adds the "Free" space to the list of called values
+ * 
+ */
 public BingoCaller()
 {
     this.CalledValues= new ArrayList <>();
-    CalledValues.add("Free");// Add free space to CalledValues
+    CalledValues.add("Free");
 }
-
+/**
+ *This Function Calls the given bingo values and then places the called values 
+ * on the list of called values in the BingoCaller Class
+ * @return String CalledValue
+ * 
+ */
 public String CallValue()
 {
     int Input = Rand.nextInt(5);
@@ -36,12 +45,23 @@ public String CallValue()
     BingoValue = GenerateVal(Input);
     //DisplayValue(BingoValue);
     }
+    
     CalledValues.add(BingoValue);
-    System.out.println(BingoValue);
-    return BingoValue;    
+    
+    
+    
+    return BingoValue;
+    
+    
 }
 
-    
+  /**
+ *This Function Generates a valid Bingo Value when called by the Call value 
+ * function. It is based exactly on the Bingo Value Generator found in the board
+ * class
+ * @return String GeneratedVal
+ * @param int Seed
+ */
 private static String GenerateVal(int i)
 {
         int Num;
@@ -88,30 +108,16 @@ private static String GenerateVal(int i)
         }
         return Total;
     }
+/**
+ *This Function returns the BingoCaller's List of Called Values and is used to 
+ * check the validity of any bingo called
+ * @return ArrayList<String>
+ * 
+ */
 public ArrayList<String> GetValuesCalled()
 {
    ArrayList<String> TempList= CalledValues;
    return TempList;
 }
-public void displayCaller()
-{
-        JFrame GenericFrame = new JFrame();
-        String CalledValue=CallValue();
-        JPanel GenericPanel = new JPanel();
-        GenericPanel.setLayout(new BoxLayout(GenericPanel, BoxLayout.X_AXIS));
+}
 
-        JButton NextCall = new JButton("Next");
-        GenericFrame.setSize(200,150);
-        GenericFrame.setTitle(CalledValue);
-           
-        
-        JLabel BingoVal = new JLabel(CalledValue);
-        
-        BingoVal.setSize(75,175);
-        BingoVal.setFont(new Font("Serif", 1 ,30));
-        GenericPanel.add(BingoVal);
-        GenericFrame.add(GenericPanel);
-        GenericFrame.setVisible(true);
-        GenericFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-}
-}

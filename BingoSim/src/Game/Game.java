@@ -14,13 +14,13 @@ package Game;
 import java.util.*;
 import javax.swing.*;
 import Menu.Player;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 
@@ -39,7 +39,7 @@ public class Game
     private Player PlayerTwo;
    
     
-
+    private Boolean Theme;
     private Boolean BingoVictory;
     private BingoFact TheFacts;
     private BingoCaller TheCaller;
@@ -59,11 +59,11 @@ public class Game
      * @param PlayerOne
      * @param PlayerTwo
      */
-    public Game(Player PlayerOne, Player PlayerTwo)
+    public Game(Player PlayerOne, Player PlayerTwo, Boolean Theme)
     {
         
-        this.BoardTwo = initBoard(true);
-        this.BoardOne = initBoard(true);
+        this.BoardTwo = initBoard(Theme);
+        this.BoardOne = initBoard(Theme);
        
         this.PlayerOne = PlayerOne;
         this.PlayerTwo = PlayerTwo;
@@ -74,7 +74,7 @@ public class Game
         this.CardTwo = new String[5][5];
         this.GameBoardOne = BoardOne;
         this.GameBoardTwo = BoardTwo;
-        
+        this.Theme = Theme;
         this.CalledValue= new String();
         Boolean StartGame=initGame();
         
@@ -119,77 +119,11 @@ public class Game
     {
     displayGui();
      
-     /*for (int i = 0; i<5; i++)
-     {
-         for(int j=0;j<5;j++)
-         {
-            CardOne[i][j]= GameBoardOne.getTile(i,j);
-            CardTwo[i][j]= GameBoardTwo.getTile(i,j);
-         }
-     }*/
-     
-    
-    
-    
-     BoardOne.PlayGame();
-     BoardTwo.PlayGame();
-     
-     //while(BingoVictory!=true){
-     //displayCaller();
-     
-     /*while (BingoVictory!=true)
-     {
-        try{
-         BoardOne.PlayGame();
-         BoardTwo.PlayGame();
-         Thread.sleep(15000);
-         //displayCaller();
-         //Thread.sleep(5000);*/
-         
-         
-         
-        /*for (int i = 0; i<5; i++)
-         {
-         for(int j=0;j<5;j++)
-         {
-            if (CardOne[i][j]== CalledValue)
-            {
-                GameBoardOne.SetTileObject(i, j);
-            }
-            if (CardTwo [i][j]== CalledValue)
-            {
-                GameBoardOne.SetTileObject(i,j);
-            }
-         }
-         }*/
-         
-         
-         
-         
-         /*if (PlayerOne.GetPlayerType()== false)
-         {
-             PlayerOne.PassValue(CalledValue);
-         }
-         if (PlayerTwo.GetPlayerType()== false)
-         {
-            PlayerTwo.PassValue(CalledValue);
-         }
-         
-         
-         }
-         catch (InterruptedException e){
-             e.printStackTrace();
-         }*/
-         
-     
-     
-     //TheFacts.DisplayFact();
-     
      return true;
     }
     /**
-     * This Function is the primary controller of the game and sets the user 
-     * displays as well as calls a bingo value every 10 seconds
+     * This Function Checks the validity of a Bingo Call and then prints a
+     * message detailing the validity of the call and the BingoFact if applicable
      * @param TheCard
      * @return void
      */
@@ -278,75 +212,78 @@ public class Game
             BingoVictory=true;
             TheFacts.DisplayFact();
         }
+         if(TheCard.GetTileStatus(0, 4)==true && TheCard.GetTileStatus(1, 3)==true && TheCard.GetTileStatus(2, 2)==true && TheCard.GetTileStatus(3,1)==true
+                && TheCard.GetTileStatus(4, 0)==true)
+        {
+            BingoVictory=true;
+            TheFacts.DisplayFact();
+        }
         displayVictory();
     }
    
     
     }
     /**
-     * Function used to Initialize the Bingo Caller
-     * @return a BingoCaller object
+     * Function is used to initialize the Bingo Fact for use later in the program
+     * @return BingoFact
      */
     public BingoFact initBingoFact()
     {
         return new BingoFact();
     }
     /**
-     * Function used to initialize the BingoFact.
-     * 
-     * @return a BingoFact object 
+     * This function is used to obtain the singleton instance of the Game,it is
+     * used by the Board.java Class
+     * @return Game
      */
     public Game getInstance()
     {
         Game TempGame = this;
         return TempGame;
     }
+    /**
+     *This function is used to both display the GUI and run the game, it cycles 
+     * BingoCaller on click and allows the user to click for a Bingo and also 
+     * serves as the display of the caller
+     *
+     */
     public void displayGui()
     {
      
-    JFrame f = new JFrame("Bingo Board");
+   JFrame TheFrame = new JFrame("Bingo Board");
 
-   Board myboard = BoardOne;
+   Board CardOne = BoardOne;
    
-   Board testboard = BoardTwo;
-   //JPanel VictoryCheck = displayVictory();
-   System.out.println("Begin");
+   Board CardTwo = BoardTwo;
    
-   /*JPanel use4 = myboard.displayBoard();
-   System.out.println("Begin");
-   javax.swing.GroupLayout layout = new javax.swing.GroupLayout(use4);
-        use4.setLayout(layout);
-        // layout settings goes here
-        f.setSize(1500, 500);
-        f.add(use4);
-        f.setVisible(true);
    
-  JButton b1 = new JButton(myboard.getTile(0, 0));
    
-   b1.setBounds(50, 50, 5, 5);
    
-   f.setSize(640, 480);
-   f.setVisible(true);
-   f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-   f.add(b1);*/
   
-   f.setSize(1500, 500);
-   f.setVisible(true);
-   f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   TheFrame.setSize(1500, 500);
+   TheFrame.setVisible(true);
+   TheFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    JPanel container = new JPanel();
    container.setLayout(new BoxLayout(container, BoxLayout.X_AXIS));
-   JPanel use1 = myboard.displayBoard();
-   JPanel use2 = testboard.displayBoard();
-   container.add(use1);
-   container.add(use2);
-   //container.add(VictoryCheck);
-   f.add(container);
+   JPanel CardOneGui = CardOne.displayBoard();
+   JPanel CardTwoGui = CardTwo.displayBoard();
+   CardOneGui.setBorder(BorderFactory.createCompoundBorder(
+                 BorderFactory.createLineBorder(Color.black),
+                   CardOneGui.getBorder()));
+   CardTwoGui.setBorder(BorderFactory.createCompoundBorder(
+                   BorderFactory.createLineBorder(Color.black),
+                   CardTwoGui.getBorder())); 
+   container.add(CardOneGui);
+   container.add(CardTwoGui);
+  
    
-   f.addWindowListener(new WindowAdapter() {
+   TheFrame.add(container);
+   
+   TheFrame.addWindowListener(new WindowAdapter() {
     @Override
     public void windowClosing(WindowEvent e) {
     int confirmed = JOptionPane.showConfirmDialog(null, 
-        "Are you sure you want to exit the program?", "Exit Program Message Box",
+        "Are you sure you want to exit the Game?", "Exit Program Message Box",
         JOptionPane.YES_NO_OPTION);
 
     if (confirmed == JOptionPane.YES_OPTION) {
@@ -355,81 +292,35 @@ public class Game
     }
     
     public void windowActivated(WindowEvent we) {
-        myboard.PlayGame();
-        testboard.PlayGame();
-        //while (BingoVictory!=true)
-        //{
-         
-         
-         
+        CardOne.PlayGame();
+        CardTwo.PlayGame();
+
          displayCaller();
+         
+         if (BoardTwo.GetTileStatus(2, 2)==false)
+         {
+             BoardOne.CheckCPU("Free");
+             BoardTwo.CheckCPU("Free");
+         }
          
          if (PlayerTwo.GetPlayerType()==false)
          {
+             BoardOne.CheckCPU(CalledValue);
              BoardTwo.CheckCPU(CalledValue);
          }
-         
-         
-         
-         
-        /*for (int i = 0; i<5; i++)
-         {
-         for(int j=0;j<5;j++)
-         {
-            if (CardOne[i][j]== CalledValue)
-            {
-                GameBoardOne.SetTileObject(i, j);
-            }
-            if (CardTwo [i][j]== CalledValue)
-            {
-                GameBoardOne.SetTileObject(i,j);
-            }
-         }
-         }*/
-         
-         
-         
-         
-         /*if (PlayerOne.GetPlayerType()== false)
-         {
-             PlayerOne.PassValue(CalledValue);
-         }
-         if (PlayerTwo.GetPlayerType()== false)
-         {
-            PlayerTwo.PassValue(CalledValue);
-         }
-         
-         
-    
-         }*/
-         //TheFacts.DisplayFact();
     }
-         
-        
-        
-        //}
-    
+   
    });
      
      
-    /* f.addWindowListener(new WindowAdapter() {
-    @Override
-    public void windowClosing(WindowEvent e) {
-    int confirmed = JOptionPane.showConfirmDialog(null, 
-        "Are you sure you want to exit the program?", "Exit Program Message Box",
-        JOptionPane.YES_NO_OPTION);
-
-    if (confirmed == JOptionPane.YES_OPTION) {
-      
-    }
-    }
     
-    public void windowActivated(WindowEvent e) {
-        BoardOne.PlayGame();
-        BoardTwo.PlayGame();}
-
-     });*/
     }
+    /**
+     *This function is used to both display the GUI and run the game, it cycles 
+     * BingoCaller on click and allows the user to click for a Bingo and also 
+     * serves as the display of the caller
+     *
+     */
              
     public void displayCaller()
     {
@@ -437,7 +328,7 @@ public class Game
         CalledValue=TheCaller.CallValue();
         JPanel GenericPanel = new JPanel();
         GenericPanel.setLayout(new BoxLayout(GenericPanel, BoxLayout.X_AXIS));
-
+        
         JButton Call = new JButton("Bingo?");
         GenericFrame.setSize(200,150);
         GenericFrame.setTitle(CalledValue);
@@ -451,7 +342,8 @@ public class Game
         GenericPanel.add(Call);
         GenericFrame.add(GenericPanel);
         GenericFrame.setVisible(true);
-        GenericFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GenericFrame.setLocation(400, 500);
+        
         ActionListener Clicks = (new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) { 
@@ -461,6 +353,7 @@ public class Game
             CheckBingo(BoardTwo);
         }}});
         Call.addActionListener(Clicks);
+    
         
         
         
@@ -474,7 +367,8 @@ public class Game
         
         if (BingoVictory==false)
         {
-            Condition = "Keep Playing";
+            Condition = "Sorry, your BINGO Values don’t match the system.";
+			  
         }
         else 
         {
@@ -487,10 +381,33 @@ public class Game
         VictoryCondition.setFont(new Font("Serif",1,30));
         VictoryPanel.add(VictoryCondition);
         GenericFrame.add(VictoryPanel);
-        GenericFrame.setSize(200,150);
+        GenericFrame.setSize(550,150);
+        GenericFrame.setLocation(350, 200);
         GenericFrame.setVisible(true);
         GenericFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //return VictoryPanel;
+        
+       javax.swing.Timer autoHideTimer = new javax.swing.Timer(300, new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        GenericFrame.dispose();
+        
+      }
+    });
+    autoHideTimer.setRepeats(false);
+
+    GenericFrame.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseExited(MouseEvent e) {
+        System.out.println("Restart...");
+        autoHideTimer.restart();
+      }
+      @Override
+      public void mouseEntered(MouseEvent e) {
+        System.out.println("Stop");
+        autoHideTimer.stop();
+      }
+    });
+       
     }
     
         
