@@ -58,6 +58,7 @@ public class Game
      * icluding Bingo Fact, The Boards, The players, and the Bingo Caller
      * @param PlayerOne
      * @param PlayerTwo
+     * @param Theme
      */
     public Game(Player PlayerOne, Player PlayerTwo, Boolean Theme)
     {
@@ -80,6 +81,11 @@ public class Game
         
         
         }
+    /**
+     * Returns the Board and initializes them
+     * @return Board
+     * @param Theme
+     */
 
     public Board initBoard(Boolean Theme)
     {   Board TheBoard = new Board(Theme);
@@ -88,32 +94,46 @@ public class Game
                 
     }
     
-    
+    /**
+     * Returns the First Player
+     * @return Player
+     */
     public Player GetPlayerOne()
     {
         Player TempPlayer = PlayerOne;
         return TempPlayer;
     }
+    /**
+     * Returns the Second Player
+     * @return Player
+     */
     public Player GetPlayerTwo()
     {
         Player TempPlayer = PlayerTwo;
         return TempPlayer;
     }
+    /**
+     * Returns the First Board
+     * @return Board
+     */
     public Board GetBoardOne()
     {
         Board TempBoard = BoardOne;
         return TempBoard;
     }
+    /**
+     * Returns the Second Board
+     * @return Board
+     */
     public Board GetBoardTwo()
     {
         Board TempBoard = BoardTwo;
         return TempBoard;
     }
     /**
-     * Returns 
-     * 
-     * @param None
-     * @return 
+     * Initializes the Game and Calls the display functions
+     * to carry out game play
+     * @return Boolean
      */
     public Boolean initGame()
     {
@@ -125,7 +145,7 @@ public class Game
      * This Function Checks the validity of a Bingo Call and then prints a
      * message detailing the validity of the call and the BingoFact if applicable
      * @param TheCard
-     * @return void
+     *
      */
     public void CheckBingo(Board TheCard)
     {  
@@ -314,9 +334,9 @@ public class Game
     
     }
     /**
-     *This function is used to both display the Caller and cycle through it
-     * using buttons and creating a new JFrame independent of the main display
-     * 
+     *This function is used to both display the GUI and run the game, it cycles 
+     * BingoCaller on click and allows the user to click for a Bingo and also 
+     * serves as the display of the caller
      *
      */
              
@@ -377,14 +397,14 @@ public class Game
         
         
     }
-     /**
-     *This function is used display whether or not a victory has been declared
-     * and allows for the user to exit the game
+    /**
+     *This function is used to both display the GUI for the victory 
+     * and displays the result of a check Bingo, the window also disappears a
+     * after some seconds
      *
      */
     public void displayVictory()
     {
-        
         JFrame GenericFrame = new JFrame();
         String Condition;
         JPanel VictoryPanel = new JPanel();
