@@ -396,6 +396,10 @@ public class Board {
             }
         }
     }
+     /**
+     * Sets the Game associated with the Card
+     * @param ThisGame 
+     */
     public void setGame(Game ThisGame)
     {
         this.MyGame = ThisGame;
