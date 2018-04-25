@@ -395,12 +395,6 @@ public class Board {
                 }
             }
         }
-        if (zero == 5 || one == 5 || two == 5 || three == 5 || four == 5 ||
-                ascend == 5 || descend == 5)
-        {
-            TheGui.MarkTileButton(5, 0); // Special call to mark Bingo button
-                                         // and Call Bingo
-        }
     }
     public void setGame(Game ThisGame)
     {
