@@ -15,7 +15,7 @@ public class Start extends javax.swing.JFrame {
      */
     public Start() {
         initComponents();
-        
+        this.getContentPane().setBackground(Color.black); //Changes the background to black
         //Color LightLetters = new Color(244, 119, 28);
       // getContentPane().setLayout(400,300);
     }
