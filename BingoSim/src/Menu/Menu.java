@@ -28,7 +28,21 @@ public class Menu extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.pink);
     }
 
-
+/**
+*Declaring labels and buttons to display on screen
+*@param menulb for the word Menu displayed on the top of the screen
+*@param themelb for the word Theme displayed on the screen
+*@param Darkthm for the dark theme radio button
+*@param Lightthm for the light theme radio button
+*@param playerlb for the word Theme displayed on the screen
+*@param Oneplay for the one player radio button
+*@param Twoplay for the two player radio button      
+*@param begingame for starting the game and passing all the data selected to the game package
+*@param exitbtn for exiting the game
+*/
+   
+   
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
