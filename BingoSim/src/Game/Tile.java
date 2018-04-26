@@ -16,7 +16,6 @@ import java.util.*;
  */
 public class Tile {
     private final String BingoVal;
-    //private static Random Rand = new Random();
     private Boolean IsSelected;
     
     /**
@@ -29,9 +28,6 @@ public class Tile {
     public Tile(int i)
     {
        this.BingoVal = "Broke";//this.GenerateVal(i);
-       /*this.SetSelected(false);
-       //System.out.print(this.getVal());
-       //System.out.println(this.getStatus());*/
     }
     /**
      * Constructor used for the Free Space. This constructor is unique to the 
@@ -66,9 +62,6 @@ public class Tile {
     public void SetSelected(Boolean selected)
     {
         IsSelected = selected;
-        //System.out.print(this.getVal() + " which is initialized");
-        if (selected == true)
-        System.out.println("Value change to " + selected);
     }
     /**
      * Function used to get the status of the Tile and whether it's selected or
