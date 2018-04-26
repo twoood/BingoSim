@@ -57,7 +57,7 @@ public class Start extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(140, 140, 110, 27);
+        jButton1.setBounds(140, 140, 110, 34);
 
         jButton2.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         jButton2.setText("QUIT");
@@ -67,9 +67,9 @@ public class Start extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(140, 240, 110, 27);
+        jButton2.setBounds(140, 240, 110, 34);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bingo/33.gif")));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bingo/33.gif")));
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 10, 340, 100);
 
@@ -81,9 +81,7 @@ public class Start extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(140, 190, 110, 27);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Venika\\Pictures\\bla.png")); // NOI18N
+        jButton3.setBounds(140, 190, 110, 34);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 400, 300);
 
